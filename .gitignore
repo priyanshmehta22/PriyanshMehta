@@ -7,7 +7,7 @@
 *.b$?
 *.s$?
 *.l$?
-node_modules
+
 # Eagle project file
 # It contains a serial number and references to the file structure
 # on your computer.
@@ -36,7 +36,7 @@ eagle.epf
 *.pls
 *.ger
 *.xln
-.env
+
 *.drd
 *.drd.*
 
@@ -49,3 +49,9 @@ eagle.epf
 
 # file locks introduced since 7.x
 *.lck
+
+
+
+.env
+dist
+node_modules
