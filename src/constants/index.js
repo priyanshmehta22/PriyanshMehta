@@ -6,7 +6,6 @@ import {
     python,
     html,
     java,
-    wordpress,
     sql,
     expressjs,
     bootstrap,
@@ -19,7 +18,14 @@ import {
     secretly,
     threejs,
     todo,
-    teleradtechlogo, solarsecuresolutions, vchc, emotionrecognition, arjunkalyanpur, madeinheaven
+    teleradtechlogo, solarsecuresolutions, vchc, emotionrecognition, arjunkalyanpur, madeinheaven, cybersec,
+    datascience,
+    datavizpython,
+    digitalmarketing,
+    frontend,
+    fullstack,
+    pythonbasics,
+    socialmediamarketing,
 } from "../assets";
 
 
@@ -45,21 +51,57 @@ export const navLinks = [
 
 const services = [
     {
-        title: "Web Developer",
+        title: "Full Stack Web Developer",
         icon: web,
     },
     {
-        title: "Backend Developer",
+        title: "UI/UX Developer",
         icon: backend,
-    },
-    {
-        title: "Frontend Developer",
-        icon: creator,
     },
     {
         title: "CMS Developer",
         icon: creator,
     },
+    {
+        title: "Social Media Marketing",
+        icon: creator,
+    },
+
+];
+
+const certificates = [
+    {
+        title: "fullstack",
+        image: fullstack,
+    },
+    {
+        title: "frontend",
+        image: frontend,
+    },
+    {
+        title: "cybersec",
+        image: cybersec,
+    },
+    {
+        title: "datascience",
+        image: datascience,
+    },
+    {
+        title: "datavizpython",
+        image: datavizpython,
+    },
+    {
+        title: "pythonbasics",
+        image: pythonbasics,
+    },
+    {
+        title: "digitalmarketing",
+        image: digitalmarketing,
+    },
+    {
+        title: "socialmediamarketing",
+        image: socialmediamarketing,
+    }
 ];
 
 const technologies = [
@@ -119,15 +161,11 @@ const technologies = [
         name: "MySQL",
         icon: sql,
     },
-    // {
-    //     name: "WordPress",
-    //     icon: wordpress,
-    // },
 ];
 
 const experiences = [
     {
-        title: "Fullstack Web Developer and CMS Developer",
+        title: "Fullstack Web Developer and UI/UX Developer",
         company_name: "Telerad Tech",
         icon: teleradtechlogo,
         date: "May 2023 – July 2023",
@@ -311,4 +349,4 @@ const projects = [
 
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, technologies, experiences, testimonials, projects, certificates };

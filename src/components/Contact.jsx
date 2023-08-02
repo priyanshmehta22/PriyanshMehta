@@ -66,15 +66,24 @@ const Contact = () => {
 
   return (
     <div
-      className={`xl:mt-10 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
+      className={`xl:mt-10 mb-0 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
     >
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
       >
-        <p className={styles.sectionSubText}>Get in touch </p>
-        <p className={styles.sectionSubText}>Ph:9057572696</p>
         <h3 className={styles.sectionHeadText}>Contact</h3>
+        <div className="contactDetails">
+          <p className={styles.sectionSubText}>Ph:9057572696</p>
+          <p className={styles.sectionSubText}>
+            <a
+              href="https://www.linkedin.com/in/priyansh-mehta-8b44921bb/"
+              target="_blank"
+            >
+              LinkedIn
+            </a>
+          </p>
+        </div>
 
         <form
           ref={formRef}
@@ -106,7 +115,7 @@ const Contact = () => {
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Message</span>
             <textarea
-              rows={5}
+              rows={7}
               name="message"
               value={form.message}
               onChange={handleChange}

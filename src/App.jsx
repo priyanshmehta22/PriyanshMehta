@@ -10,6 +10,7 @@ import {
   Tech,
   Works,
   StarsCanvas,
+  Carousel,
 } from "./components";
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
         <Tech />
         <Works />
         <Feedbacks />
+        <Carousel />
         <div className="relative z-0">
           <Contact />
           <StarsCanvas />

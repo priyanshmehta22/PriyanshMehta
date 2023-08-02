@@ -34,10 +34,25 @@ import solarsecuresolutions from "./company/solarsecuresolutions.png";
 import teleradtechlogo from "./company/teleradtechlogo.png";
 import python from "./tech/python.png";
 import expressjs from "./tech/expressjs.png";
-
+import cybersec from "./certificates/CyberSec.jpg";
+import datascience from "./certificates/DataScience.jpg";
+import datavizpython from "./certificates/DataVizPython.jpg";
+import digitalmarketing from "./certificates/DigitalMarketing.jpg";
+import frontend from "./certificates/FrontEnd.jpg";
+import fullstack from "./certificates/FullStack.jpg";
+import pythonbasics from "./certificates/PythonBasics.jpg";
+import socialmediamarketing from "./certificates/SocialMediaMarketing.jpg";
 
 export {
   priyanshlogo,
+  cybersec,
+  datascience,
+  datavizpython,
+  digitalmarketing,
+  frontend,
+  fullstack,
+  pythonbasics,
+  socialmediamarketing,
   java,
   sql,
   wordpress,

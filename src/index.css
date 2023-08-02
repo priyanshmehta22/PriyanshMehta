@@ -214,3 +214,10 @@
   margin-top: 5%;
   margin-left: 15%;
 }
+.contactDetails {
+  margin-top: 5%;
+  display: flex;
+}
+.contactDetails p {
+  margin-right: 5%;
+}
