@@ -68,13 +68,23 @@ const Navbar = () => {
         </ul>
         <ul className="list-none hidden sm:flex flex-row gap-10">
           <li>
-            <a href="mailto:priyansh9571mehta@gmail.com">Email</a>
+            <a href="mailto:priyansh9571mehta@gmail.com" target="_blank">
+              Email
+            </a>
           </li>
           <li>
-            <a href="https://www.instagram.com/priyansh._.mehta/">Instagram</a>
+            <a
+              href="https://www.instagram.com/priyansh._.mehta/"
+              target="_blank"
+            >
+              Instagram
+            </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/priyansh-mehta-8b44921bb/">
+            <a
+              href="https://www.linkedin.com/in/priyansh-mehta-8b44921bb/"
+              target="_blank"
+            >
               LinkedIn
             </a>
           </li>
