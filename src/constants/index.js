@@ -115,10 +115,10 @@ const technologies = [
         name: "MySQL",
         icon: sql,
     },
-    {
-        name: "WordPress",
-        icon: wordpress,
-    },
+    // {
+    //     name: "WordPress",
+    //     icon: wordpress,
+    // },
 ];
 
 const experiences = [
