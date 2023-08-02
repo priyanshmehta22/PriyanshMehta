@@ -5,7 +5,6 @@ import { SectionWrapper } from "../hoc";
 import { motion } from "framer-motion";
 import { textVariant } from "../utils/motion";
 import { styles } from "../styles";
-import { RGBAFormat } from "three";
 
 const Certificates = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
