@@ -25,13 +25,15 @@ const Certificates = () => {
     setCurrentIndex(slideIndex);
   };
   return (
-    <>
+    <div className="hideCerti">
       <motion.div variants={textVariant()}>
         {/* <center> */}
-        <h2 className={`${styles.sectionHeadText}`}>My Certificates</h2>
+        <h2 className={`${styles.sectionHeadText} certi_top`}>
+          My Certificates
+        </h2>
         {/* </center> */}
       </motion.div>
-      <div className="w-[1200px] h-[1000px] w-full m-auto py-16 px-4 relative group backdrop-brightness-80">
+      <div className="w-[1200px] h-[1000px]  w-full m-auto py-16 px-4 relative group backdrop-brightness-80">
         <div
           id="overlay"
           style={{
@@ -47,17 +49,17 @@ const Certificates = () => {
         <div className=" group-hover:block absolute top-[50%] translate-x-[80px] translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-white/50 text-white cursor-pointer">
           <BsChevronCompactRight onClick={nextSlide} size={35} />
         </div>
-        <div className="flex top-4 justify-center py-2">
+        <div className="flex top-4 justify-center py-2 ">
           {certificates.map((slide, slideIndex) => (
             <div
               key={slideIndex}
               onClick={() => goToSlide(slideIndex)}
-              className="text-2xl cursor-pointer"
+              className="text-2xl cursor-pointer "
             ></div>
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

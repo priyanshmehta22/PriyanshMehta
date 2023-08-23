@@ -221,3 +221,31 @@
 .contactDetails p {
   margin-right: 5%;
 }
+
+@media only screen and (max-width: 600px) {
+  .projs {
+    display: none;
+    margin-top: -5%;
+  }
+  .hash-span {
+    padding: 0;
+  }
+  .navbarphone {
+    padding-right: 4rem;
+    padding-left: 1rem;
+  }
+  .line {
+    margin-top: 5%;
+    margin-left: 5%;
+  }
+  .about_certi_bottom {
+    padding-bottom: 30%;
+  }
+  .certi_top {
+    margin-top: 15%;
+    margin-left: 15%;
+  }
+  .hideCerti {
+    display: none;
+  }
+}
