@@ -47,7 +47,7 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          console.log("Thank you. I will get back to you as soon as possible.");
+          alert("Thank you. I will get back to you as soon as possible.");
 
           setForm({
             name: "",
@@ -59,14 +59,16 @@ const Contact = () => {
           setLoading(false);
           console.error(error);
 
-          console.log("Ahh, something went wrong. Please try again.");
+          alert("Ahh, something went wrong. Please try again.");
         }
       );
   };
 
   return (
     <div
-      className={`xl:mt-10 mb-0 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
+      className={
+        "mt-0 mb-0 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden"
+      }
     >
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}

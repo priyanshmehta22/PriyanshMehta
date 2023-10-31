@@ -25,6 +25,8 @@ import {
     frontend,
     fullstack,
     pythonbasics,
+    gravitas,
+    gravitaslogo,
     socialmediamarketing,
 } from "../assets";
 
@@ -169,6 +171,19 @@ const technologies = [
 
 const experiences = [
     {
+        title: "graVITas'23 Tech Team Manager",
+        company_name: "College Tech Fest",
+        icon: gravitaslogo,
+        date: "August 2023 – September 2023",
+        points: [
+            "Successfully managed and led a cross-functional tech team in the development of the website 'gravitas.vit.ac.in.'",
+            "Utilized cutting-edge technologies and frameworks, including TypeScript, Next.js, Framer Motion, React, Tailwind CSS, and React.",
+            "Website was successfully launched and used by 20,000 students at VIT.",
+            "Lead the Frontend team and worked throughout to build 15+ components, Ensured the website is responsive, delivering an advanced user experience.",
+            "Integrated Framer Motion and React to create smooth and engaging animations throughout the website, enhancing interactivity and visual appeal."
+        ],
+    },
+    {
         title: "Fullstack Web Developer and UI/UX Developer",
         company_name: "Telerad Tech",
         icon: teleradtechlogo,
@@ -225,6 +240,27 @@ const testimonials = [
 
 const projects = [
     {
+        name: "graVITas'23",
+        description:
+            "'gravitas.vit.ac.in' is a dynamic and cutting-edge website that serves as the online hub for VIT (Vellore Institute of Technology) University's annual techno-management fest, Gravitas. As the Tech Team Manager, I led a highly skilled team in the creation of this digital platform, which seamlessly blends innovation, technology, and creativity. This website provides a comprehensive and immersive experience for students, participants, and tech enthusiasts from across the globe. Key features and components of the website include: Information Hub, User-Centric Design, Responsive Design, Engaging Animations, Performance Optimization, SEO-Ready, Accessibility and Inclusivity, Security Measures, Continuous Integration/Continuous Deployment (CI/CD), Stakeholder Collaboration.",
+        tags: [
+            {
+                name: "next",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "typescript",
+                color: "green-text-gradient",
+            },
+            {
+                name: "react",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: gravitas,
+        source_code_link: "https://gravitas.vit.ac.in/",
+    },
+    {
         name: "Secretly",
         description:
             "Welcome to Secretly where secrets find solace and confessions are liberated, all in anonymous harmony. Embrace the cathartic power of sharing unfiltered thoughts, desires, and regrets. Be part of a compassionate community, offering understanding without judgment. In this digital haven, vulnerability unites, as whispered revelations form an intricate tapestry of shared experiences. Join us as the shadows become a canvas for untold stories, creating a symphony of souls yearning for connection. Discover the strength in anonymity and the freedom to be your true self. Welcome to a sanctuary where every whisper matters.",
@@ -264,7 +300,7 @@ const projects = [
             },
         ],
         image: arjunkalyanpur,
-        // source_code_link: "https://github.com/priyanshmehta22/Secretly",
+        source_code_link: "https://arjunkalyanpur.in",
     },
     {
         name: "Made In Heaven",

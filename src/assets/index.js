@@ -42,9 +42,13 @@ import frontend from "./certificates/FrontEnd.jpg";
 import fullstack from "./certificates/FullStack.jpg";
 import pythonbasics from "./certificates/PythonBasics.jpg";
 import socialmediamarketing from "./certificates/SocialMediaMarketing.jpg";
+import gravitaslogo from './gravitaslogo.png'
+import gravitas from './gravitas.png'
 
 export {
   priyanshlogo,
+  gravitas,
+  gravitaslogo,
   cybersec,
   datascience,
   datavizpython,

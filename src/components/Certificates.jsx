@@ -25,7 +25,7 @@ const Certificates = () => {
     setCurrentIndex(slideIndex);
   };
   return (
-    <div className="hideCerti">
+    <div>
       <motion.div variants={textVariant()}>
         {/* <center> */}
         <h2 className={`${styles.sectionHeadText} certi_top`}>
@@ -33,28 +33,36 @@ const Certificates = () => {
         </h2>
         {/* </center> */}
       </motion.div>
-      <div className="w-[1200px] h-[1000px]  w-full m-auto py-16 px-4 relative group backdrop-brightness-80">
+      <div className="w-full m-0 py-8 px-4 relative group">
         <div
           id="overlay"
           style={{
             backgroundImage: `url(${certificates[currentIndex].image})`,
+            backgroundSize: "contain",
+            backgroundPosition: "center",
+            marginLeft: "5%",
+            backgroundRepeat: "no-repeat",
+            width: "90%",
+            paddingTop: "60%", // This maintains the aspect ratio
+            borderRadius: "0.5rem", // Rounded corners for the image container
           }}
-          className="w-full h-full rounded-2xl bg-center bg-cover duration-40 bg-black backdrop-brightness-50"
+          className="w-full h-full duration-1000"
         ></div>
+
         {/* Left Arrow */}
-        <div className=" group-hover:block absolute top-[50%] -translate-x-20 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-white/50 text-white cursor-pointer">
-          <BsChevronCompactLeft onClick={prevSlide} size={35} />
+        <div className=" group-hover:block absolute top-[50%]  translate-y-[-50%] left-1 text-m rounded-full p-2 bg-white/50 text-white cursor-pointer">
+          <BsChevronCompactLeft onClick={prevSlide} size={20} />
         </div>
         {/* Right Arrow */}
-        <div className=" group-hover:block absolute top-[50%] translate-x-[80px] translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-white/50 text-white cursor-pointer">
-          <BsChevronCompactRight onClick={nextSlide} size={35} />
+        <div className=" group-hover:block absolute top-[50%]  translate-y-[-50%] right-1 text-m rounded-full p-2 bg-white/50 text-white cursor-pointer">
+          <BsChevronCompactRight onClick={nextSlide} size={20} />
         </div>
-        <div className="flex top-4 justify-center py-2 ">
+        <div className="flex top-4 justify-center pt-2 object-contain">
           {certificates.map((slide, slideIndex) => (
             <div
               key={slideIndex}
               onClick={() => goToSlide(slideIndex)}
-              className="text-2xl cursor-pointer "
+              className="text-2xl cursor-pointer object-contain"
             ></div>
           ))}
         </div>
