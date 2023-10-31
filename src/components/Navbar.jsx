@@ -53,7 +53,7 @@ const Navbar = () => {
           </p>
         </Link>
 
-        <ul className="list-none hidden sm:flex flex-row gap-10">
+        <ul className="list-none hidden xl:flex gap-10">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
@@ -66,13 +66,13 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <ul className="list-none hidden sm:flex flex-row gap-10">
-          <li>
+        <ul className="text-secondary list-none hidden xl:flex gap-10">
+          <li className="hover:text-white text-[18px] font-medium cursor-pointer">
             <a href="mailto:priyansh9571mehta@gmail.com" target="_blank">
               Email
             </a>
           </li>
-          <li>
+          <li className="hover:text-white text-[18px] font-medium cursor-pointer">
             <a
               href="https://www.instagram.com/priyansh._.mehta/"
               target="_blank"
@@ -80,7 +80,7 @@ const Navbar = () => {
               Instagram
             </a>
           </li>
-          <li>
+          <li className="hover:text-white text-[18px] font-medium cursor-pointer">
             <a
               href="https://www.linkedin.com/in/priyansh-mehta-8b44921bb/"
               target="_blank"
@@ -90,7 +90,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div className="sm:hidden flex flex-1 justify-end items-center">
+        <div className="xl:hidden flex flex-1 justify-end items-center">
           <img
             src={toggle ? close : menu}
             alt="menu"
@@ -118,6 +118,27 @@ const Navbar = () => {
                   <a href={`#${nav.id}`}>{nav.title}</a>
                 </li>
               ))}
+              <li className="text-secondary hover:text-white font-poppins text-[16px] font-medium cursor-pointer">
+                <a href="mailto:priyansh9571mehta@gmail.com" target="_blank">
+                  Email
+                </a>
+              </li>
+              <li className="text-secondary hover:text-white font-poppins text-[16px] font-medium cursor-pointer">
+                <a
+                  href="https://www.instagram.com/priyansh._.mehta/"
+                  target="_blank"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li className="text-secondary hover:text-white font-poppins text-[16px] font-medium cursor-pointer">
+                <a
+                  href="https://www.linkedin.com/in/priyansh-mehta-8b44921bb/"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>
+              </li>
             </ul>
           </div>
         </div>
