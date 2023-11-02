@@ -81,11 +81,8 @@ const Navbar = () => {
             </a>
           </li>
           <li className="hover:text-white text-[18px] font-medium cursor-pointer">
-            <a
-              href="https://www.linkedin.com/in/priyansh-mehta-8b44921bb/"
-              target="_blank"
-            >
-              LinkedIn
+            <a href="https://github.com/priyanshmehta22" target="_blank">
+              Github
             </a>
           </li>
         </ul>
