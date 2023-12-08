@@ -8,7 +8,6 @@ import {
     java,
     sql,
     expressjs,
-    bootstrap,
     javascript,
     typescript,
     reactjs,
@@ -27,7 +26,7 @@ import {
     pythonbasics,
     gravitas,
     gravitaslogo,
-    socialmediamarketing,
+    socialmediamarketing, clerk, FlickLogo,
 } from "../assets";
 
 
@@ -120,8 +119,8 @@ const technologies = [
         icon: tailwind,
     },
     {
-        name: "Bootstrap",
-        icon: bootstrap,
+        name: "Clerk",
+        icon: clerk,
     },
     {
         name: "Java",
@@ -239,6 +238,27 @@ const testimonials = [
 ];
 
 const projects = [
+    {
+        name: "Flick",
+        description:
+            "'Flick is a  Responsive Social Media platform for people across the world to interact by posting flicks (posts), joining communities and reacting to flicks. The tech stack used is Next.js, TypeScript, Clerk Auth for authentication, Zod for data validation, MongoDB for database management, and UploadThing for file uploads. It is integrated with community creation, secure authentication, and threaded communication features, fostering user engagement.",
+        tags: [
+            {
+                name: "next",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "typescript",
+                color: "green-text-gradient",
+            },
+            {
+                name: "clerk",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: FlickLogo,
+        source_code_link: "https://flick-sigma.vercel.app/",
+    },
     {
         name: "graVITas'23",
         description:
