@@ -215,7 +215,7 @@ const experiences = [
 const testimonials = [
     {
         testimonial:
-            "I thought it was impossible to make a website as beautiful as our product, but Priyansh proved me wrong.",
+            "It was an absolute privilege working with you, you are the upcoming future of this country.",
         name: "Arjun Kalyanpur",
         designation: "CEO",
         company: "Telerad Tech",
@@ -235,7 +235,7 @@ const testimonials = [
         name: "Hareesh Kavil",
         designation: "Sales Manager",
         company: "Telerad Tech",
-        image: "https://media.licdn.com/dms/image/D5603AQHVByle7FA4sw/profile-displayphoto-shrink_800_800/0/1674542132274?e=2147483647&v=beta&t=3P6USy9uuTB6OTgsbuCWJ_waW_kWUsjPC5Py7cNwlvM",
+        image: "https://www.google.com/search?sca_esv=589119146&q=hareesh+kavil&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjDws2go4CDAxVZoWMGHVLtBsAQ0pQJegQICxAB&biw=1536&bih=730&dpr=1.25#imgrc=CXXdxmWZtwIHKM",
     },
 ];
 
@@ -243,7 +243,7 @@ const projects = [
     {
         name: "Flick",
         description:
-            "'Flick is a  Responsive Social Media platform for people across the world to interact by posting flicks (posts), joining communities and reacting to flicks. The tech stack used is Next.js, TypeScript, Clerk Auth for authentication, Zod for data validation, MongoDB for database management, and UploadThing for file uploads. It is integrated with community creation, secure authentication, and threaded communication features, fostering user engagement.",
+            "'Flick is a  Responsive Social Media platform for people across the world to interact by posting flicks (posts), joining communities and reacting to flicks. The tech stack used is Next.js, TypeScript, Clerk Auth for authentication, Zod for data validation, MongoDB for database management, and UploadThing for file uploads. It is integrated with community creation, secure authentication, and threaded communication features, fostering user engagement. The platform's distinctive functionality extends beyond traditional social media, encompassing a robust community system. Users can effortlessly create and join communities tailored to their interests, fostering a sense of belonging and facilitating targeted content consumption. Leveraging MongoDB, I optimized data storage and retrieval mechanisms, enhancing the scalability of the platform as it accommodates a growing user base.",
         tags: [
             {
                 name: "next",
