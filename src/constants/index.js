@@ -15,7 +15,7 @@ import {
     nodejs,
     mongodb,
     secretly,
-    threejs,
+    nextjs,
     todo,
     teleradtechlogo, solarsecuresolutions, vchc, emotionrecognition, arjunkalyanpur, madeinheaven, cybersec,
     datascience,
@@ -26,7 +26,9 @@ import {
     pythonbasics,
     gravitas,
     gravitaslogo,
-    socialmediamarketing, clerk, FlickLogo,
+    socialmediamarketing,
+    clerk,
+    FlickLogo,
 } from "../assets";
 
 
@@ -119,7 +121,7 @@ const technologies = [
         icon: tailwind,
     },
     {
-        name: "Clerk",
+        name: "Clerk Auth",
         icon: clerk,
     },
     {
@@ -155,8 +157,8 @@ const technologies = [
         icon: passportjs,
     },
     {
-        name: "Three JS",
-        icon: threejs,
+        name: "Next",
+        icon: nextjs,
     },
     {
         name: "MongoDB",

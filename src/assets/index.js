@@ -44,13 +44,18 @@ import pythonbasics from "./certificates/PythonBasics.jpg";
 import socialmediamarketing from "./certificates/SocialMediaMarketing.jpg";
 import gravitaslogo from './gravitaslogo.png'
 import gravitas from './gravitas.png'
-
+import FlickLogo from './FlickLogo.png'
+import clerk from './clerk.png'
+import nextjs from './nextjs.png'
 export {
   priyanshlogo,
+  nextjs,
   gravitas,
   gravitaslogo,
   cybersec,
   datascience,
+  FlickLogo,
+  clerk,
   datavizpython,
   digitalmarketing,
   frontend,
