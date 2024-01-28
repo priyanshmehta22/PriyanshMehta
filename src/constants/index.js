@@ -29,6 +29,7 @@ import {
     socialmediamarketing,
     clerk,
     FlickLogo,
+    heart,
 } from "../assets";
 
 
@@ -240,6 +241,27 @@ const testimonials = [
 ];
 
 const projects = [
+    {
+        name: "Dr Anamika Jain",
+        description:
+            "'This is a Portfolio cum appointment booking website for Dr. Anamika Jain. Having several landing pages and attractive UI/UX and responsive design, it is a perfect platform to promote and create a social presence on the internet. With seamless rendering using NextJS and Typescript, this website is built with latest technologies. This website gives a brief about Dr Anamika Jain and the work, services and expertise she provides to the patients through her caring work towards the public also integrated with EmailJS for smooth communication between user and Doctor. Appointment booking services is also available through which the patient can book an appointment and receive a response mail for comfirmation. Tailwind Css is used for designing this website and is fully responsive for better usage on various devices.",
+        tags: [
+            {
+                name: "next",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "typescript",
+                color: "green-text-gradient",
+            },
+            {
+                name: "tailwind",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: heart,
+        source_code_link: "https://dranamikajain.in/",
+    },
     {
         name: "Flick",
         description:

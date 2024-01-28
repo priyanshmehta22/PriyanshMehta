@@ -47,7 +47,9 @@ import gravitas from './gravitas.png'
 import FlickLogo from './FlickLogo.png'
 import clerk from './clerk.png'
 import nextjs from './nextjs.png'
+import heart from './heart.png'
 export {
+  heart,
   priyanshlogo,
   nextjs,
   gravitas,

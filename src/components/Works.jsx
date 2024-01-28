@@ -1,11 +1,10 @@
-import React from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { link } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
-import { fadeIn, textVariant } from "../utils/motion";
+import { fadeIn } from "../utils/motion";
 
 const isMobile = window.innerWidth <= 768;
 
