@@ -66,10 +66,23 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <ul className="text-secondary list-none hidden xl:flex gap-10">
+        <ul className="text-white-500 list-none hidden xl:flex gap-10">
           <li className="hover:text-white text-[18px] font-medium cursor-pointer">
             <a href="mailto:priyansh9571mehta@gmail.com" target="_blank">
               Email
+            </a>
+          </li>
+          <li className="hover:text-white text-[18px] font-medium cursor-pointer">
+            <a href="https://github.com/priyanshmehta22" target="_blank">
+              Github
+            </a>
+          </li>
+          <li className="text-white hover:text-white font-poppins text-[16px] font-medium cursor-pointer">
+            <a
+              href="https://www.linkedin.com/in/priyansh-mehta-8b44921bb/"
+              target="_blank"
+            >
+              LinkedIn
             </a>
           </li>
           <li className="hover:text-white text-[18px] font-medium cursor-pointer">
@@ -78,11 +91,6 @@ const Navbar = () => {
               target="_blank"
             >
               Instagram
-            </a>
-          </li>
-          <li className="hover:text-white text-[18px] font-medium cursor-pointer">
-            <a href="https://github.com/priyanshmehta22" target="_blank">
-              Github
             </a>
           </li>
         </ul>
@@ -115,25 +123,31 @@ const Navbar = () => {
                   <a href={`#${nav.id}`}>{nav.title}</a>
                 </li>
               ))}
-              <li className="text-secondary hover:text-white font-poppins text-[16px] font-medium cursor-pointer">
+
+              <li className="text-white hover:text-white text-[16px] font-medium cursor-pointer">
                 <a href="mailto:priyansh9571mehta@gmail.com" target="_blank">
                   Email
                 </a>
               </li>
-              <li className="text-secondary hover:text-white font-poppins text-[16px] font-medium cursor-pointer">
-                <a
-                  href="https://www.instagram.com/priyansh._.mehta/"
-                  target="_blank"
-                >
-                  Instagram
+              <li className="text-white hover:text-white text-[16px] font-medium cursor-pointer">
+                <a href="https://github.com/priyanshmehta22" target="_blank">
+                  Github
                 </a>
               </li>
-              <li className="text-secondary hover:text-white font-poppins text-[16px] font-medium cursor-pointer">
+              <li className="text-white hover:text-white font-poppins text-[16px] font-medium cursor-pointer">
                 <a
                   href="https://www.linkedin.com/in/priyansh-mehta-8b44921bb/"
                   target="_blank"
                 >
                   LinkedIn
+                </a>
+              </li>
+              <li className="hover:text-white text-[16px] font-medium cursor-pointer">
+                <a
+                  href="https://www.instagram.com/priyansh._.mehta/"
+                  target="_blank"
+                >
+                  Instagram
                 </a>
               </li>
             </ul>

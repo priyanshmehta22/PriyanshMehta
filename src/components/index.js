@@ -9,9 +9,11 @@ import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import Certificates from './Certificates';
+// import MyComputerCanvas from './MyComputerCanvas'
 
 export {
   Hero,
+  // MyComputerCanvas,
   Navbar,
   About,
   Tech,
