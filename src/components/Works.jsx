@@ -6,7 +6,7 @@ import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn } from "../utils/motion";
 
-const isMobile = window.innerWidth <= 1362;
+const isMobile = window.innerWidth <= 1366;
 
 const ProjectCard = ({
   index,
@@ -18,8 +18,8 @@ const ProjectCard = ({
 }) => {
   return isMobile ? (
     <>
-      <div className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full">
-        <div className="relative w-full h-[230px]">
+      <div className="bg-tertiary p-5 rounded-2xl md:w-[310px] lg:w-[350px] w-full flex flex-wrap">
+        <div className="relative  w-full h-[230px]">
           <img
             src={image}
             alt="project_image"
@@ -68,9 +68,9 @@ const ProjectCard = ({
           scale: 1,
           speed: 1000,
         }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+        className="bg-tertiary p-5 rounded-2xl md:w-[310px] lg:w-[350px] w-full flex flex-wrap"
       >
-        <div className="relative w-full h-[230px]">
+        <div className="relative  w-full h-[230px]">
           <img
             src={image}
             alt="project_image"
