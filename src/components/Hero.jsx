@@ -1,15 +1,35 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-// import MyComputerCanvas from "./MyComputerCanvas";
 
 const Hero = () => {
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+
+      if (heroRef.current) {
+        heroRef.current.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <div className={`relative w-full h-screen mx-auto`}>
+      <div
+        ref={heroRef}
+        className={`relative w-full h-screen mx-auto bg-hero-pattern bg-cover bg-fixed`}
+      >
         <div
-          className={`line absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
+          className={`line absolute inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
         >
-          {/* <ComputersCanvas /> */}
           <div className="flex flex-col justify-center items-center mt-5">
             <div className="w-5 h-5 rounded-full bg-[#915EFF]" />
             <div className="w-1 sm:h-80 h-40 violet-gradient" />
@@ -44,7 +64,6 @@ const Hero = () => {
           </a>
         </div>
       </div>
-      {/* <MyComputerCanvas /> */}
     </>
   );
 };

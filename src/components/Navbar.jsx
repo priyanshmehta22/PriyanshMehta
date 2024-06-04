@@ -47,13 +47,15 @@ const Navbar = () => {
             alt="logo"
             className="w-9 h-9 object-contain"
           />
-          <p className="text-white text-[18px] font-bold cursor-pointer flex ">
+          <p className="text-white text-[18px] font-bold cursor-pointer flex flex-nowrap">
             Priyansh &nbsp;
-            <span className="sm:block hidden"> | Web Developer</span>
+            {/* <span className="sm:block hidden flex flex-nowrap">
+              | Web Developer
+            </span> */}
           </p>
         </Link>
 
-        <ul className="list-none hidden xl:flex gap-10">
+        <ul className="list-none hidden xl:flex gap-10 mx-5">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
@@ -77,7 +79,7 @@ const Navbar = () => {
               Github
             </a>
           </li>
-          <li className="text-white hover:text-white font-poppins text-[16px] font-medium cursor-pointer">
+          <li className="text-white hover:text-white font-poppins text-[18px] font-medium cursor-pointer">
             <a
               href="https://www.linkedin.com/in/priyansh-mehta-8b44921bb/"
               target="_blank"
