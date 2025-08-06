@@ -221,3 +221,41 @@
 .contactDetails p {
   margin-right: 5%;
 }
+
+/* Chatbot Markdown Styles */
+.chatbot-markdown {
+  color: inherit;
+}
+
+.chatbot-markdown p {
+  margin-bottom: 0.5rem;
+}
+
+.chatbot-markdown ul,
+.chatbot-markdown ol {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.chatbot-markdown li {
+  margin-bottom: 0.25rem;
+}
+
+.chatbot-markdown strong {
+  font-weight: 600;
+}
+
+.chatbot-markdown em {
+  font-style: italic;
+}
+
+.chatbot-markdown h1,
+.chatbot-markdown h2,
+.chatbot-markdown h3,
+.chatbot-markdown h4,
+.chatbot-markdown h5,
+.chatbot-markdown h6 {
+  font-weight: 600;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}

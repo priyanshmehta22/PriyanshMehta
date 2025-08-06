@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import OpenAI from "openai";
 import { createSystemPrompt } from "../utils/systemPrompt";
+import ReactMarkdown from "react-markdown";
 
 const Chatbot = () => {
   const [systemPrompt, setSystemPrompt] = useState("");
@@ -129,6 +130,36 @@ const Chatbot = () => {
 
   return (
     <>
+      {/* Animated Chat Invitation */}
+      {!isOpen && (
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.5,
+            delay: 1,
+            repeat: Infinity,
+            repeatType: "reverse",
+            repeatDelay: 3,
+          }}
+          className="fixed bottom-6 right-20 z-40 bg-secondary text-white px-4 py-2 rounded-full shadow-lg"
+        >
+          <motion.div
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="flex items-center space-x-2"
+          >
+            <span className="text-sm font-medium">Hey! Come Chat with me</span>
+            <motion.div
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              👋
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      )}
+
       {/* Chatbot Toggle Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
@@ -208,7 +239,36 @@ const Chatbot = () => {
                       : "bg-tertiary text-white"
                   }`}
                 >
-                  <p className="text-sm">{message.text}</p>
+                  <div className="text-sm chatbot-markdown">
+                    <ReactMarkdown
+                      components={{
+                        p: ({ children }) => (
+                          <p className="text-sm mb-2">{children}</p>
+                        ),
+                        ul: ({ children }) => (
+                          <ul className="list-disc list-inside space-y-1 mb-2">
+                            {children}
+                          </ul>
+                        ),
+                        ol: ({ children }) => (
+                          <ol className="list-decimal list-inside space-y-1 mb-2">
+                            {children}
+                          </ol>
+                        ),
+                        li: ({ children }) => (
+                          <li className="text-sm">{children}</li>
+                        ),
+                        strong: ({ children }) => (
+                          <strong className="font-semibold">{children}</strong>
+                        ),
+                        em: ({ children }) => (
+                          <em className="italic">{children}</em>
+                        ),
+                      }}
+                    >
+                      {message.text}
+                    </ReactMarkdown>
+                  </div>
                   <p className="text-xs opacity-70 mt-1">
                     {message.timestamp.toLocaleTimeString([], {
                       hour: "2-digit",
