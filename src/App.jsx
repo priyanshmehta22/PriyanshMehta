@@ -1,4 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
+import systemPromptData from "./utils/systemPrompt";
 
 import {
   About,
@@ -11,9 +12,13 @@ import {
   Works,
   StarsCanvas,
   Certificates,
+  Chatbot,
 } from "./components";
 
 const App = () => {
+  const [systemPrompt, linkedIn, name] = systemPromptData;
+  console.log(systemPrompt, linkedIn, name);
+
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
@@ -32,6 +37,9 @@ const App = () => {
           <Contact />
           <StarsCanvas />
         </div>
+
+        {/* Chatbot Component */}
+        <Chatbot />
       </div>
     </BrowserRouter>
   );

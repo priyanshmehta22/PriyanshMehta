@@ -9,6 +9,7 @@ import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import Certificates from './Certificates';
+import Chatbot from './Chatbot';
 
 export {
   Hero,
@@ -23,5 +24,6 @@ export {
   CanvasLoader,
   EarthCanvas,
   BallCanvas,
-  StarsCanvas
+  StarsCanvas,
+  Chatbot
 };
