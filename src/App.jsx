@@ -1,5 +1,4 @@
 import { BrowserRouter } from "react-router-dom";
-import systemPromptData from "./utils/systemPrompt";
 
 import {
   About,
@@ -16,9 +15,6 @@ import {
 } from "./components";
 
 const App = () => {
-  const [systemPrompt, linkedIn, name] = systemPromptData;
-  console.log(systemPrompt, linkedIn, name);
-
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">

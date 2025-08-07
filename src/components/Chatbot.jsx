@@ -31,7 +31,7 @@ const Chatbot = () => {
     const loadSystemPrompt = async () => {
       try {
         const prompt = await createSystemPrompt();
-        console.log("System prompt loaded successfully"); // Essential check
+
         setSystemPrompt(prompt);
       } catch (error) {
         console.error("Error loading system prompt:", error);
