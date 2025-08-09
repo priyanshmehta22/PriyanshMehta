@@ -4,7 +4,7 @@ import {
     web,
     passportjs,
     python,
-    html,
+    agenticAI,
     java,
     sql,
     expressjs,
@@ -29,7 +29,7 @@ import {
     socialmediamarketing,
     clerk,
     FlickLogo,
-    heart,
+    heart, Oracle
 } from "../assets";
 
 
@@ -115,8 +115,8 @@ const certificates = [
 
 const technologies = [
     {
-        name: "HTML 5",
-        icon: html,
+        name: "Agentic AI",
+        icon: agenticAI,
     },
     {
         name: "Tailwind CSS",
@@ -173,6 +173,32 @@ const technologies = [
 ];
 
 const experiences = [
+    {
+        title: "Associate Software Developer",
+        company_name: "Oracle India Pvt Ltd",
+        icon: Oracle,
+        date: "July 2024 – Present",
+        points: [
+            "Engineered a data transformation layer for multi-vendor log formats, reducing processing latency by 65%.",
+            "Enabled real-time visualization of 10,000+ metrics for the SBC product dashboard.",
+            "Ensured robust and scalable architecture with optimized MongoDB indexing and asynchronous data flows.",
+            "Collaborated across teams to integrate frontend analytics with backend processing pipelines."
+        ],
+    },
+
+    {
+        title: "Software Development Intern",
+        company_name: "Oracle India Pvt Ltd",
+        icon: Oracle,
+        date: "January 2024 – July 2024",
+        points: [
+            "Built a performance-optimized crash log monitoring tool for the SBC product using Python, TypeScript, and Next.js with ShadCN UI components.",
+            "Implemented scalable React state management with Context API and custom hooks, reducing unnecessary re-renders.",
+            "Contributed to the development of a hybrid SSR + CSR architecture that brought down load time to under 850ms.",
+            "Gained exposure to real-world Agile development cycles and collaboration in a high-scale enterprise setting."
+        ],
+    },
+
     {
         title: "graVITas'23 Tech Team Manager",
         company_name: "College Tech Fest",

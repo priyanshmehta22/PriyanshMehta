@@ -5,6 +5,26 @@ import { styles } from "../styles";
 const Hero = () => {
   const heroRef = useRef(null);
 
+  // Function to calculate age based on date of birth
+  const calculateAge = (birthDate) => {
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birth.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
+  };
+
+  // Calculate age based on DOB: 22/12/2002
+  const age = calculateAge("2002-12-22");
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -37,10 +57,10 @@ const Hero = () => {
 
           <div className="heading">
             <h1 className={`${styles.heroHeadText} text-white`}>
-              Hi, I'm <span className="text-[#915EFF]">Priyansh</span>
+              Hi, I&apos;m <span className="text-[#915EFF]">Priyansh</span>
             </h1>
             <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-              I am a 21 year young student/ Web Developer.
+              I am a {age} year young student/ Web Developer.
               <br className="sm:block hidden" />I develop websites and user
               interfaces.
             </p>

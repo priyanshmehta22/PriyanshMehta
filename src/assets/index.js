@@ -48,6 +48,8 @@ import FlickLogo from './FlickLogo.png'
 import clerk from './clerk.png'
 import nextjs from './nextjs.png'
 import heart from './heart.png'
+import Oracle from './Oracle.png'
+import agenticAI from './agenticAI.png'
 export {
   heart,
   priyanshlogo,
@@ -97,5 +99,6 @@ export {
   solarsecuresolutions,
   madeinheaven,
   html,
-
+  Oracle,
+  agenticAI
 };
