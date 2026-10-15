@@ -45,6 +45,10 @@ export interface FlexCarouselProps extends Partial<PresetValues> {
   captureWheel?: boolean;
   /** Controlled position: when it changes, the carousel springs to that item. */
   activeIndex?: number;
+  /** Fractional item position (e.g. 2.4) to scrub to; follows continuously, for scroll-driven use. */
+  position?: number;
+  /** Opacity of cards away from the centre (1 = no fade). */
+  sideOpacity?: number;
   onChange?: (index: number, item: FlexCarouselItem) => void;
   onSelect?: (index: number, item: FlexCarouselItem) => void;
   className?: string;
@@ -62,6 +66,7 @@ interface Settings extends PresetValues {
   autoplay: boolean;
   interval: number;
   captureWheel: boolean;
+  sideOpacity: number;
 }
 
 interface Slot {
@@ -120,6 +125,7 @@ interface Engine {
   wake: () => void;
   setItems: (items: FlexCarouselItem[]) => void;
   goTo: (index: number) => void;
+  seek: (position: number) => void;
 }
 
 interface Callbacks {
@@ -413,6 +419,8 @@ const FlexCarousel = ({
   captions = true,
   captureWheel = true,
   activeIndex,
+  position,
+  sideOpacity = 1,
   onChange,
   onSelect,
   className = '',
@@ -457,7 +465,8 @@ const FlexCarousel = ({
       focusOnClick,
       autoplay,
       interval,
-      captureWheel
+      captureWheel,
+      sideOpacity
     };
     engineRef.current?.wake();
   });
@@ -469,6 +478,10 @@ const FlexCarousel = ({
   useEffect(() => {
     if (activeIndex !== undefined) engineRef.current?.goTo(activeIndex);
   }, [activeIndex]);
+
+  useEffect(() => {
+    if (position !== undefined) engineRef.current?.seek(position);
+  }, [position]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -1048,6 +1061,11 @@ const FlexCarousel = ({
                 alpha *= 1 - part;
               }
             }
+            if (s.sideOpacity < 1) {
+              const away = clamp01(Math.abs(rel) / (w * 0.5 + s.gap + 1));
+              const ease = away * away * (3 - 2 * away);
+              alpha *= 1 - (1 - s.sideOpacity) * ease;
+            }
             const cw = w * scale;
             if (alpha <= 0.001 || x + cw / 2 < -40 || x - cw / 2 > width + 40) continue;
             draws.push({ i, rel, x, y: homeY + (fx ? fx.y : 0), cw, ch: cardH * scale, alpha });
@@ -1348,6 +1366,21 @@ const FlexCarousel = ({
         const s = settingsRef.current;
         if (!s || !slots.length) return;
         goTo(metrics(s), index);
+      },
+      seek: (value: number) => {
+        const s = settingsRef.current;
+        if (!s || !slots.length || pointer.dragging) return;
+        const m = metrics(s);
+        const n = m.centers.length;
+        const clamped = Math.min(Math.max(value, 0), n - 1);
+        const i0 = Math.floor(clamped);
+        const i1 = Math.min(i0 + 1, n - 1);
+        const span = i1 === i0 ? 0 : m.widths[i0] / 2 + m.gap + m.widths[i1] / 2;
+        const base = goal + wrap(m.centers[i0] - goal, m.loop);
+        goal = base + (clamped - i0) * span;
+        mode = 'spring';
+        dirty = true;
+        start();
       }
     };
 

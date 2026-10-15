@@ -8,6 +8,8 @@ import FlexCarousel from "./ui/FlexCarousel";
 
 // Scroll distance (in viewport heights) spent on each project while the section is pinned.
 const VH_PER_PROJECT = 70;
+// Fraction of the pinned scroll spent resting on the first and on the last project.
+const HOLD = 0.06;
 
 const carouselItems = projects.map((project) => ({
   src: project.image,
@@ -52,15 +54,15 @@ const ProjectDetails = ({ project }) => (
 
 const Works = () => {
   const trackRef = useRef(null);
-  const [target, setTarget] = useState(0);
+  const [position, setPosition] = useState(0);
   const [shown, setShown] = useState(0);
   const { scrollYProgress } = useScroll({ target: trackRef, offset: ["start start", "end end"] });
 
-  // Page scroll turns the carousel one project at a time; after the last one the
-  // section unpins and the page continues to the next section.
+  // Page scroll scrubs the carousel continuously (every wheel notch moves it), with a
+  // short hold on the first and last project. After the last one the section unpins.
   useMotionValueEvent(scrollYProgress, "change", (value) => {
-    const index = Math.min(projects.length - 1, Math.max(0, Math.floor(value * projects.length)));
-    setTarget((current) => (current === index ? current : index));
+    const t = Math.min(1, Math.max(0, (value - HOLD) / (1 - 2 * HOLD)));
+    setPosition(t * (projects.length - 1));
   });
 
   return (
@@ -103,9 +105,13 @@ const Works = () => {
             autoplay={false}
             interval={4}
             captureWheel={false}
-            activeIndex={target}
+            position={position}
+            sideOpacity={0.25}
             onChange={(index) => setShown(index)}
           />
+          {/* Soft blur over the sides so only the centre project reads clearly. */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-[30%] backdrop-blur-[6px] [mask-image:linear-gradient(to_right,black_40%,transparent)]" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-[30%] backdrop-blur-[6px] [mask-image:linear-gradient(to_left,black_40%,transparent)]" />
         </div>
 
         <div className="mt-3">

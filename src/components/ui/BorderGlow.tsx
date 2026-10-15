@@ -195,22 +195,27 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
           : 'rgba(0,0,0,0.1) 0 1px 2px, rgba(0,0,0,0.1) 0 2px 4px, rgba(0,0,0,0.1) 0 4px 8px, rgba(0,0,0,0.1) 0 8px 16px, rgba(0,0,0,0.1) 0 16px 32px, rgba(0,0,0,0.1) 0 32px 64px',
       }}
     >
-      {/* mesh gradient border */}
+      {/* mesh gradient border: the outer layer is masked to the 1px edge ring, so the
+          gradient never shows through the card even when backgroundColor is translucent */}
       <div
-        className="absolute inset-0 rounded-[inherit] -z-[1]"
+        className="absolute inset-0 rounded-[inherit] -z-[1] p-px"
         style={{
-          border: '1px solid transparent',
-          background: [
-            `linear-gradient(${backgroundColor} 0 100%) padding-box`,
-            'linear-gradient(rgb(255 255 255 / 0%) 0% 100%) border-box',
-            ...borderBg,
-          ].join(', '),
-          opacity: borderOpacity,
-          maskImage: `conic-gradient(from ${angleDeg} at center, black ${coneSpread}%, transparent ${coneSpread + 15}%, transparent ${100 - coneSpread - 15}%, black ${100 - coneSpread}%)`,
-          WebkitMaskImage: `conic-gradient(from ${angleDeg} at center, black ${coneSpread}%, transparent ${coneSpread + 15}%, transparent ${100 - coneSpread - 15}%, black ${100 - coneSpread}%)`,
-          transition: isVisible ? 'opacity 0.25s ease-out' : 'opacity 0.75s ease-in-out',
+          WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
+          WebkitMaskComposite: 'xor',
+          mask: 'linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0)',
         }}
-      />
+      >
+        <div
+          className="h-full w-full rounded-[inherit]"
+          style={{
+            background: borderBg.map(g => g.replace(' border-box', '')).join(', '),
+            opacity: borderOpacity,
+            maskImage: `conic-gradient(from ${angleDeg} at center, black ${coneSpread}%, transparent ${coneSpread + 15}%, transparent ${100 - coneSpread - 15}%, black ${100 - coneSpread}%)`,
+            WebkitMaskImage: `conic-gradient(from ${angleDeg} at center, black ${coneSpread}%, transparent ${coneSpread + 15}%, transparent ${100 - coneSpread - 15}%, black ${100 - coneSpread}%)`,
+            transition: isVisible ? 'opacity 0.25s ease-out' : 'opacity 0.75s ease-in-out',
+          }}
+        />
+      </div>
 
       {/* mesh gradient fill near edges */}
       <div
