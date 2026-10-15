@@ -127,6 +127,10 @@ const Chatbot = () => {
       error.friendly = data.error;
       throw error;
     }
+    // A host without the chat server (e.g. a static deploy) answers 200 with HTML.
+    if (typeof data.reply !== "string" || !data.reply.trim()) {
+      throw new Error("Chat API returned no reply; is the server running?");
+    }
     return data.reply;
   };
 
