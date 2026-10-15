@@ -49,6 +49,9 @@ import clerk from './clerk.png'
 import nextjs from './nextjs.png'
 import heart from './heart.png'
 import Oracle from './Oracle.png'
+import gestureos from './gestureos.svg'
+import apjadvisory from './APJADVISORY.png'
+import apjgurukul from './APJGURUKUL.jpeg'
 import agenticAI from './agenticAI.png'
 export {
   heart,
@@ -100,5 +103,8 @@ export {
   madeinheaven,
   html,
   Oracle,
+  gestureos,
+  apjadvisory,
+  apjgurukul,
   agenticAI
 };

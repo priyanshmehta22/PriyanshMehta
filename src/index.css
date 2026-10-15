@@ -259,3 +259,69 @@
   margin-top: 0.75rem;
   margin-bottom: 0.5rem;
 }
+
+/* Scroll fade: blocks fade and rise in as they enter the viewport, then fade out
+   and drift up as they leave past the top. Pure CSS scroll-driven animation; it
+   animates `translate` (not `transform`) so it composes with framer-motion.
+   Browsers without animation-timeline simply show content statically. */
+@keyframes scroll-fade {
+  0% {
+    opacity: 0;
+    translate: 0 48px;
+  }
+  18%,
+  82% {
+    opacity: 1;
+    translate: 0 0;
+  }
+  100% {
+    opacity: 0;
+    translate: 0 -32px;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-fade {
+      animation: scroll-fade linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+  }
+}
+
+/* Skills marquee: two copies of each row slide by half their width for a seamless loop. */
+@keyframes skill-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 6px));
+  }
+}
+
+.skill-marquee__track {
+  animation: skill-marquee var(--marquee-duration, 40s) linear infinite;
+  animation-direction: var(--marquee-direction, normal);
+}
+
+.skill-marquee:hover .skill-marquee__track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-marquee {
+    mask-image: none !important;
+  }
+  .skill-marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+  }
+  .skill-marquee__track > ul + ul {
+    display: none;
+  }
+  .skill-marquee__track > ul {
+    flex-wrap: wrap;
+  }
+}

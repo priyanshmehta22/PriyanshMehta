@@ -72,7 +72,7 @@ const Contact = () => {
     >
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
+        className="scroll-fade flex-[0.75] bg-black-100 p-8 rounded-2xl"
       >
         <h3 className={styles.sectionHeadText}>Contact</h3>
         <div className="contactDetails">
@@ -137,7 +137,7 @@ const Contact = () => {
 
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
+        className="scroll-fade xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
       >
         <EarthCanvas />
       </motion.div>

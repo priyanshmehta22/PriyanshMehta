@@ -26,14 +26,14 @@ const Certificates = () => {
   };
   return (
     <div>
-      <motion.div variants={textVariant()}>
+      <motion.div variants={textVariant()} className="scroll-fade">
         {/* <center> */}
         <h2 className={`${styles.sectionHeadText} certi_top`}>
           My Certificates
         </h2>
         {/* </center> */}
       </motion.div>
-      <div className="w-full m-0 py-8 px-4 relative group">
+      <div className="scroll-fade w-full m-0 py-8 px-4 relative group">
         <div
           id="overlay"
           style={{

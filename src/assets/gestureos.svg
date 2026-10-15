@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="bg" cx="30%" cy="35%" r="90%">
+      <stop offset="0" stop-color="#2a1a5e"/>
+      <stop offset="0.55" stop-color="#110c2b"/>
+      <stop offset="1" stop-color="#050816"/>
+    </radialGradient>
+    <linearGradient id="bone" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b39dff"/>
+      <stop offset="1" stop-color="#4f7cff"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <g transform="translate(760 420)" fill="none" stroke="url(#bone)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- palm -->
+    <path d="M0 240 L-90 150 L-150 40 M0 240 L-40 40 L-30 -40 M0 240 L40 30 M0 240 L110 60 M-40 40 L40 30 L110 60"/>
+    <!-- thumb -->
+    <path d="M-90 150 L-170 110 L-230 60 L-270 20"/>
+    <!-- index -->
+    <path d="M-40 40 L-60 -60 L-75 -140 L-85 -210"/>
+    <!-- middle -->
+    <path d="M40 30 L45 -80 L50 -170 L55 -250"/>
+    <!-- ring -->
+    <path d="M110 60 L140 -40 L160 -120 L175 -185"/>
+    <!-- pinky (via palm edge) -->
+    <path d="M0 240 L170 120 L215 50 L245 -5 L270 -55"/>
+  </g>
+  <g transform="translate(760 420)" fill="#f3f3f3">
+    <circle cx="0" cy="240" r="11"/>
+    <circle cx="-90" cy="150" r="9"/><circle cx="-170" cy="110" r="9"/><circle cx="-230" cy="60" r="9"/><circle cx="-270" cy="20" r="11" fill="#b39dff"/>
+    <circle cx="-40" cy="40" r="9"/><circle cx="-60" cy="-60" r="9"/><circle cx="-75" cy="-140" r="9"/><circle cx="-85" cy="-210" r="11" fill="#b39dff"/>
+    <circle cx="40" cy="30" r="9"/><circle cx="45" cy="-80" r="9"/><circle cx="50" cy="-170" r="9"/><circle cx="55" cy="-250" r="11" fill="#b39dff"/>
+    <circle cx="110" cy="60" r="9"/><circle cx="140" cy="-40" r="9"/><circle cx="160" cy="-120" r="9"/><circle cx="175" cy="-185" r="11" fill="#b39dff"/>
+    <circle cx="170" cy="120" r="9"/><circle cx="215" cy="50" r="9"/><circle cx="245" cy="-5" r="9"/><circle cx="270" cy="-55" r="11" fill="#b39dff"/>
+  </g>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" fill="#f3f3f3">
+    <text x="80" y="170" font-size="84" font-weight="700">GestureOS</text>
+    <text x="82" y="225" font-size="28" fill="#aaa6c3">Real-time hand-landmark control</text>
+    <text x="82" y="620" font-size="24" fill="#b39dff">21 landmarks / frame</text>
+    <text x="82" y="660" font-size="24" fill="#b39dff">11 ms inference · 60 FPS</text>
+    <text x="82" y="700" font-size="24" fill="#b39dff">0 cloud round-trips</text>
+  </g>
+</svg>

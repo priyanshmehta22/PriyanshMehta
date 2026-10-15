@@ -1,0 +1,116 @@
+[
+  {
+    "id": "profile",
+    "section": "Profile",
+    "pinned": true,
+    "text": "Priyansh Mehta, Application Software Developer 2 (promoted; platform software engineering) at Oracle. Based in Jaipur / Hyderabad. 2+ years of enterprise experience at Oracle, plus many more years of personal coding since school (CS classes in Jaipur, freelance client sites, side projects like GestureOS). Builds AI agents, websites, apps, workflows, microservices, data pipelines, MCP servers and computer-vision systems. Works on AI-integrated systems, computer vision, distributed systems, agentic workflows and large-scale network infrastructure. Email priyansh9571mehta@gmail.com; LinkedIn linkedin.com/in/priyansh-mehta-8b44921bb; GitHub github.com/priyanshmehta22; site priyansh.onrender.com."
+  },
+  {
+    "id": "oracle-role",
+    "section": "Experience",
+    "text": "Oracle India Pvt Ltd, Hyderabad: Associate Software Developer from Jul 2024 to Oct 2026, then promoted to Application Software Developer 2 on 16 Oct 2026 (current role). Platform engineering on the Oracle Acme Packet Session Border Controller (SBC).",
+    "keywords": "current job, employer, company, job title, promotion, where do you work, years of experience, how long, work experience"
+  },
+  {
+    "id": "oracle-datapath",
+    "section": "Experience",
+    "text": "As Associate Software Developer at Oracle led datapath and platform engineering for the Acme Packet SBC in Linux, C and C++: production fixes in RTCP media policing, NAT/ACL correctness and DPWD supportability across the SIP, RTP/RTCP and TCP/UDP stack, improving runtime reliability and cutting customer-escalation turnaround.",
+    "keywords": "networking, VoIP, telecom, C programming, low-level systems, reliability"
+  },
+  {
+    "id": "oracle-diagnostics",
+    "section": "Experience",
+    "text": "As Associate Software Developer at Oracle designed and delivered 20+ datapath drop and NAT-miss classifications with better CLI/dump visibility, replacing aggregate counters with protocol- and stage-level diagnostics that sped up root-cause isolation.",
+    "keywords": "debugging, observability, root cause analysis, counters"
+  },
+  {
+    "id": "oracle-buginsight",
+    "section": "Experience",
+    "text": "BugInsight (Oracle, as Associate Software Developer): full-stack Next.js, TypeScript and Python analysis platform unifying 10,000+ statistical variables and 100+ log files into a type-safe investigation GUI built with Shadcn UI. A multi-vendor transformation layer cut processing time 65% and large-page load time 50%.",
+    "keywords": "log analysis tool, dashboard, full stack, performance optimization"
+  },
+  {
+    "id": "oracle-agents",
+    "section": "Experience",
+    "text": "As Associate Software Developer at Oracle architected an orchestrator-led multi-agent system with 22 tools across 2 MCP (Model Context Protocol) servers: dynamic agent routing, autonomous task execution, shared context memory and compare-dump regression analysis, speeding up faulty-delivery detection by up to 10,000x.",
+    "keywords": "AI agents, LLM, agentic workflows, automation, Model Context Protocol"
+  },
+  {
+    "id": "oracle-asd2-projects",
+    "section": "Experience",
+    "text": "Current work as Application Software Developer 2 at Oracle (since 16 Oct 2026): RCA Agent, an AI agent for root-cause analysis of SBC issues from logs and dumps; an Agentic Framework for building and orchestrating agents; RCA Workflow Generation & Automation; RCA Remediation, from diagnosis to automated fixes; and datapath work on the DEMUX and NAT Packet Processing Modules (PPM).",
+    "keywords": "current projects, what are you working on now, RCA, root cause analysis, remediation, agentic framework, DEMUX, NAT, PPM, packet processing"
+  },
+  {
+    "id": "oracle-intern",
+    "section": "Experience",
+    "text": "Project Intern at Oracle, Hyderabad, Jan 2024 to Jun 2024: built a real-time multi-client messaging app over TCP/WebSocket with connection management and bidirectional message routing, and did protocol-level debugging and traffic analysis using SBC networking concepts.",
+    "keywords": "internship, intern, first job at Oracle, sockets, chat app"
+  },
+  {
+    "id": "gravitas",
+    "section": "Experience",
+    "text": "Tech Team Manager, graVITas'23 international tech-management festival at VIT Vellore, Aug to Sep 2023: led the frontend team building the registration and payment site in TypeScript, React, Tailwind CSS and REST APIs; 30+ reusable components; page load time cut 50% with custom hooks and scoped React Context; served about 20,000 users.",
+    "keywords": "college fest, leadership, team lead, managing a team"
+  },
+  {
+    "id": "earlier-roles",
+    "section": "Experience",
+    "text": "Earlier freelance and part-time web roles: Web Developer at Telerad Tech, Bengaluru (May 2023 to Aug 2024); Web Developer at Image Core Lab, Bengaluru (Jul 2023 to Aug 2024); React Developer at Solar Secure Solutions (May to Jul 2022), building React sites, Node/Express REST APIs, Google OAuth and MongoDB.",
+    "keywords": "freelance, previous jobs, past experience, before Oracle"
+  },
+  {
+    "id": "gestureos-overview",
+    "section": "Projects",
+    "text": "GestureOS (gestureos.in): real-time computer-vision platform that controls a computer with hand gestures, fully on-device with 0 cloud round-trips. A Rust vision core regresses 21 hand landmarks per frame with two-stage ONNX and streams JSON events over a named-pipe IPC (each IPC hop takes under 100 microseconds; end-to-end latency is under 16ms) to a TypeScript action engine that routes gestures to pluggable adapters.",
+    "keywords": "side project, startup, hand tracking, gesture control"
+  },
+  {
+    "id": "gestureos-performance",
+    "section": "Projects",
+    "text": "GestureOS performance: landmark inference sped up from 67ms to 11ms (84%, 6x) on DirectML/CUDA, moved to a worker thread behind a ring-buffered queue, sustaining 60 FPS with under 16ms latency and 0 dropped frames. A confidence-scored classifier for 20+ gestures fuses Kalman filtering, multi-frame temporal voting and ghost-gesture suppression to push false activations toward 0.",
+    "keywords": "latency, speed, FPS, optimization, accuracy"
+  },
+  {
+    "id": "gestureos-app",
+    "section": "Projects",
+    "text": "GestureOS ships as a cross-platform Tauri app with 4 app-aware profiles (Gaming, Meeting, System, Cursor); Cursor Mode maps fingertips to OS-level mouse control via enigo. Its website is Next.js 15 with Google OAuth, Prisma/PostgreSQL, Razorpay billing and Three.js, hosted on Vercel.",
+    "keywords": "desktop app, product, pricing, website, mouse control"
+  },
+  {
+    "id": "apj-gurukul",
+    "section": "Projects",
+    "text": "APJ Gurukul: a mobile-first live-learning app for luxury retail, hospitality and sales professionals. Live instructor-led classes, DRM-protected recordings, structured courses and Razorpay purchases/subscriptions. Flutter apps for Android and iOS, a NestJS backend on Google Cloud (Cloud Run, Cloud SQL PostgreSQL, Redis, Pub/Sub), one-account-one-device login, screen-recording protection and an internal admin dashboard.",
+    "keywords": "mobile app, Flutter, edtech, learning platform, live classes, NestJS, GCP"
+  },
+  {
+    "id": "apj-advisory",
+    "section": "Projects",
+    "text": "APJ Advisory website (apjadvisory.com): site for a Mumbai-based consultancy for retail and jewellery businesses (a division of APJ Jewels), presenting strategy, growth, retail operations and marketing services, industries, approach, a Book a Consultation flow and links to the APJ Gurukul academy.",
+    "keywords": "website, client work, consulting, jewellery, retail"
+  },
+  {
+    "id": "other-projects",
+    "section": "Projects",
+    "text": "Other projects: Unified-SEO, an AI blog generator using GPT-4 and DALL-E 3 with Strategy Pattern model switching, LinkedIn/Google OAuth and a Puppeteer metadata crawler; Flick, a social platform in Next.js, TypeScript, MongoDB, Clerk Auth and UploadThing; Dr. Anamika Jain appointment-booking site in Next.js and Tailwind; the graVITas'23 festival site; Dr. Arjun Kalyanpur portfolio on WordPress; an emotion-recognition model in Python, OpenCV and CNNs.",
+    "keywords": "portfolio projects, websites built, past projects, machine learning"
+  },
+  {
+    "id": "skills",
+    "section": "Skills",
+    "text": "Languages and systems: Java, TypeScript, JavaScript, Python, C++, C, Linux. AI: prompt engineering, agentic AI, agent orchestration, MCP, computer vision, ONNX, OpenAI APIs. Web: React, Next.js, Node.js, Express.js, Tailwind CSS, Shadcn UI, MongoDB, PostgreSQL/Prisma, OAuth 2.0, Clerk, Passport.js. Also Rust and Tauri (GestureOS). Networking: SIP, RTP/RTCP, TCP/UDP, NAT/ACL.",
+    "keywords": "tech stack, programming languages, frameworks, tools, expertise"
+  },
+  {
+    "id": "education",
+    "section": "Education",
+    "text": "B.Tech in Computer Science, Vellore Institute of Technology (VIT), 2020 to 2024, GPA 8.69. High school in Mathematics and Computer Science at Neerja Modi School, Jaipur (2016 to 2020).",
+    "keywords": "study, studied, university, college, degree, school, GPA, graduation"
+  },
+  {
+    "id": "extras",
+    "section": "Other",
+    "text": "Certifications: The Complete Web Development Bootcamp, Python Basics, Accenture Developer Virtual Experience Program, marketing and social-media marketing certifications. Won a Vedic Math competition in Jaipur. Languages spoken: English and Hindi (native), German and French (elementary).",
+    "keywords": "certificates, awards, achievements, spoken languages, human languages"
+  }
+]

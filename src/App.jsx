@@ -9,30 +9,34 @@ import {
   Navbar,
   Tech,
   Works,
-  StarsCanvas,
   Certificates,
   Chatbot,
 } from "./components";
+import StoryBackground from "./components/story/StoryBackground";
+import StoryProgress from "./components/story/StoryProgress";
+import OracleChapter from "./components/story/OracleChapter";
+import GestureChapter from "./components/story/GestureChapter";
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-          <Navbar />
-          <Hero />
-        </div>
+        {/* Site-wide animated background and story navigation */}
+        <StoryBackground />
+        <StoryProgress />
+
+        <Navbar />
+        <Hero />
 
         <About />
+        <OracleChapter />
+        <GestureChapter />
         <Experience />
         <Tech />
         <Works />
         <Feedbacks />
         <Certificates />
-        <div className="relative z-0">
-          <Contact />
-          <StarsCanvas />
-        </div>
+        <Contact />
 
         {/* Chatbot Component */}
         <Chatbot />

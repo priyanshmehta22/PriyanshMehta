@@ -1,17 +1,45 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import OpenAI from "openai";
-import { createSystemPrompt } from "../utils/systemPrompt";
 import ReactMarkdown from "react-markdown";
+import {
+  Briefcase01Icon,
+  CodeIcon,
+  Mortarboard01Icon,
+  Rocket01Icon,
+} from "@hugeicons/core-free-icons";
+import PromptBar from "./ui/PromptBar";
+
+const TOPICS = [
+  { key: "experience", name: "Experience", description: "Oracle, internships, roles", icon: Briefcase01Icon },
+  { key: "projects", name: "Projects", description: "GestureOS, BugInsight & more", icon: Rocket01Icon },
+  { key: "skills", name: "Skills", description: "Languages, AI, frameworks", icon: CodeIcon },
+  { key: "education", name: "Education", description: "VIT Vellore, BTech CSE", icon: Mortarboard01Icon },
+];
+
+const COMMANDS = [
+  { key: "intro", name: "/intro", description: "A quick introduction" },
+  { key: "gestureos", name: "/gestureos", description: "How GestureOS works" },
+  { key: "agents", name: "/agents", description: "The multi-agent MCP system" },
+  { key: "contact", name: "/contact", description: "How to reach me" },
+];
+
+// Slash commands expand into full questions before they are sent to the model.
+const COMMAND_PROMPTS = {
+  "/intro": "Give me a quick introduction about yourself.",
+  "/gestureos": "Tell me about GestureOS and how it works.",
+  "/agents": "Tell me about the orchestrator-led multi-agent system you built with MCP servers.",
+  "/contact": "How can I contact you?",
+};
+
+const HISTORY_MESSAGES = 6;
+
+const expandCommand = (text) => {
+  const match = /^(\/[\w-]+)\s*(.*)$/s.exec(text);
+  if (!match || !COMMAND_PROMPTS[match[1]]) return text;
+  return [COMMAND_PROMPTS[match[1]], match[2]].filter(Boolean).join(" ");
+};
 
 const Chatbot = () => {
-  const [systemPrompt, setSystemPrompt] = useState("");
-  const [isLoadingPrompt, setIsLoadingPrompt] = useState(true);
-  const openai = new OpenAI({
-    apiKey: import.meta.env.VITE_APP_OPENAI_KEY,
-    dangerouslyAllowBrowser: true,
-  });
-
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -20,32 +48,10 @@ const Chatbot = () => {
       timestamp: new Date(),
     },
   ]);
-  const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const messagesEndRef = useRef(null);
-  const inputRef = useRef(null);
-
-  // Load system prompt from PDF on component mount
-  useEffect(() => {
-    const loadSystemPrompt = async () => {
-      try {
-        const prompt = await createSystemPrompt();
-
-        setSystemPrompt(prompt);
-      } catch (error) {
-        console.error("Error loading system prompt:", error);
-        // Fallback to basic prompt
-        setSystemPrompt(
-          "You are acting as Priyansh Mehta. Answer questions about his background, skills, and experience professionally."
-        );
-      } finally {
-        setIsLoadingPrompt(false);
-      }
-    };
-
-    loadSystemPrompt();
-  }, []);
+  const controllerRef = useRef(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -55,22 +61,23 @@ const Chatbot = () => {
     scrollToBottom();
   }, [messages]);
 
-  const handleSendMessage = async () => {
-    if (!inputMessage.trim() || isLoading || !systemPrompt) return;
+  const handleSendMessage = async (text) => {
+    const question = expandCommand(text.trim());
+    if (!question || isLoading) return;
 
     const userMessage = {
       id: Date.now(),
-      text: inputMessage,
+      text: question,
       sender: "user",
       timestamp: new Date(),
     };
 
     setMessages((prev) => [...prev, userMessage]);
-    setInputMessage("");
     setIsLoading(true);
+    controllerRef.current = new AbortController();
 
     try {
-      const response = await chat(inputMessage, messages);
+      const response = await chat(question, messages, controllerRef.current.signal);
 
       const botMessage = {
         id: Date.now() + 1,
@@ -81,51 +88,46 @@ const Chatbot = () => {
 
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
+      if (controllerRef.current?.signal.aborted) return;
       console.error("Error getting response:", error);
       const errorMessage = {
         id: Date.now() + 1,
-        text: "I'm sorry, I'm having trouble responding right now. Please try again later.",
+        text:
+          error.friendly ??
+          "I'm sorry, I'm having trouble responding right now. Please try again later.",
         sender: "bot",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
+      controllerRef.current = null;
       setIsLoading(false);
     }
   };
 
-  const chat = async (message, history) => {
-    try {
-      // Convert message history to OpenAI format
-      const messageHistory = history
-        .filter((msg) => msg.sender !== "bot" || msg.id !== 1) // Exclude initial greeting
-        .map((msg) => ({
-          role: msg.sender === "user" ? "user" : "assistant",
-          content: msg.text,
-        }));
+  // The server does retrieval and the model call; the OpenAI key never reaches the browser.
+  const chat = async (message, history, signal) => {
+    const recent = history
+      .filter((msg) => msg.id !== 1)
+      .slice(-HISTORY_MESSAGES)
+      .map((msg) => ({
+        role: msg.sender === "user" ? "user" : "assistant",
+        content: msg.text,
+      }));
 
-      const response = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: [
-          { role: "system", content: systemPrompt },
-          ...messageHistory,
-          { role: "user", content: message },
-        ],
-        temperature: 0,
-      });
-
-      return response.choices[0].message.content;
-    } catch (error) {
-      console.error("OpenAI API Error:", error);
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message, history: recent }),
+      signal,
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      const error = new Error(`HTTP ${res.status}`);
+      error.friendly = data.error;
       throw error;
     }
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      handleSendMessage();
-    }
+    return data.reply;
   };
 
   return (
@@ -194,7 +196,7 @@ const Chatbot = () => {
           initial={{ opacity: 0, y: 20, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.8 }}
-          className="fixed bottom-24 right-6 z-40 w-96 h-[500px] bg-primary rounded-2xl shadow-2xl border border-tertiary flex flex-col"
+          className="fixed bottom-24 right-6 z-40 w-[calc(100vw-3rem)] sm:w-96 h-[500px] bg-primary rounded-2xl shadow-2xl border border-tertiary flex flex-col"
         >
           {/* Header */}
           <div className="bg-tertiary p-4 rounded-t-2xl flex items-center space-x-3">
@@ -209,20 +211,6 @@ const Chatbot = () => {
 
           {/* Messages */}
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
-            {isLoadingPrompt && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="flex justify-start"
-              >
-                <div className="bg-tertiary p-3 rounded-2xl">
-                  <p className="text-sm text-white">
-                    Loading my information...
-                  </p>
-                </div>
-              </motion.div>
-            )}
-
             {messages.map((message) => (
               <motion.div
                 key={message.id}
@@ -305,40 +293,30 @@ const Chatbot = () => {
           </div>
 
           {/* Input */}
-          <div className="p-4 border-t border-tertiary">
-            <div className="flex space-x-2">
-              <input
-                ref={inputRef}
-                type="text"
-                value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder={
-                  isLoadingPrompt ? "Loading..." : "Type your message..."
-                }
-                className="flex-1 bg-tertiary text-white rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-secondary"
-                disabled={isLoading || isLoadingPrompt}
-              />
-              <button
-                onClick={handleSendMessage}
-                disabled={!inputMessage.trim() || isLoading || isLoadingPrompt}
-                className="bg-secondary text-white p-2 rounded-full hover:bg-opacity-80 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                  />
-                </svg>
-              </button>
-            </div>
+          <div className="p-3 border-t border-tertiary">
+            <PromptBar
+              placeholder="Ask me anything — try @ or /"
+              sources={TOPICS}
+              commands={COMMANDS}
+              models={[]}
+              efforts={[]}
+              showSourcesButton={false}
+              busy={isLoading}
+              onSend={(text) => handleSendMessage(text)}
+              onStop={() => controllerRef.current?.abort()}
+              background="#151030"
+              color="#f3f3f3"
+              menuBackground="#1d1836"
+              sparkColor="#915EFF"
+              sparkBoost={1}
+              width={360}
+              radius={16}
+              maxRows={5}
+              morphDuration={240}
+              squash={0.12}
+              tilt={8}
+              pressScale={0.96}
+            />
           </div>
         </motion.div>
       )}
